@@ -33,3 +33,8 @@
 (defn glitter-filter
   [minimum-glitter records]
   (map :name (filter #(>= (:glitter-index %) minimum-glitter) records)))
+
+(defn append
+  "Append a new suspect to the list"
+  [suspect susps]
+  (conj susps suspect))
