@@ -34,7 +34,32 @@
   [minimum-glitter records]
   (map :name (filter #(>= (:glitter-index %) minimum-glitter) records)))
 
+(defn ispresent?
+  [record somekey]
+  (not (nil? (record somekey))))
+
+
+(def validations {:name ispresent?
+                   :glitter-index ispresent?})
+
+(defn validate
+  [validatingfns record]
+  (apply = true (map (fn [akey]
+                       ((get validations akey) record akey))
+                     (keys validatingfns))))
+
 (defn append
-  "Append a new suspect to the list"
+  "Append a new suspect to the list if validated"
   [suspect susps]
-  (conj susps suspect))
+  (if (validate validations suspect)
+   (concat susps [suspect])
+   susps))
+
+(defn csvify
+  [record]
+  (str (get record :name) "," (get record :glitter-index)))
+
+(defn records-to-csv
+  [records]
+  (clojure.string/join "\n" (map csvify records)))
+
