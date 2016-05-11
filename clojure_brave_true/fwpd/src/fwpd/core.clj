@@ -63,3 +63,18 @@
   [records]
   (clojure.string/join "\n" (map csvify records)))
 
+(defn sum-bad
+  ([vals] (sum-bad vals 0))
+  ([vals accumulating-total]
+   (if (empty? vals)
+     accumulating-total
+     (sum-bad (rest vals) (+ (first vals) accumulating-total)))))
+
+(defn sum-good
+  ([vals]
+   (sum-good vals 0))
+  ([vals accumulating-total]
+   (if (empty? vals)
+     accumulating-total
+     (recur (rest vals) (+ (first vals) accumulating-total)))))
+
