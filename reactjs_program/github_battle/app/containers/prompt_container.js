@@ -1,28 +1,50 @@
 var React = require('react');
+var Prompt = require("../components/prompt");
 
 var PromptContainer = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+  getInitialState: function() {
+    return {
+      username: ''
+    }
+  },
+  handleUpdateUser: function(e) {
+    this.setState({
+      username: e.target.value
+    })
+  },
+  handleSubmitUser: function(e) {
+    e.preventDefault();
+    var username = this.state.username;
+    this.setState({
+      username: ''
+    });
+
+    if (this.props.routeParams.playerOne) {
+      // go to /Battle
+      this.context.router.push({
+        pathname: '/battle',
+        query: {
+          playerOne: this.props.routeParams.playerOne,
+          playerTwo: this.state.username
+        }
+      })
+    } else {
+      // go to /playerTwo
+      this.context.router.push('/playerTwo/' + this.state.username);
+    }
+  },
   render: function() {
     return (
-      <div className="jumbotron col-sm-6 col-sm-offset-3 text-center">
-        <h1>SOME HEADER TEXT</h1>
-        <div className="col-sm-12">
-          <form>
-            <div className="form-group">
-              <input
-                className="form-control"
-                placeholder="GitHub Username"
-                type="text" />
-            </div>
-            <div className="form-group col-sm-4 col-sm-offset-4">
-              <button
-                className="btn btn-block btn-success"
-                type="submit">
-                Continue
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+      <Prompt
+        onSubmitUser={this.handleSubmitUser}
+        onUpdateUser={this.handleUpdateUser}
+        header={this.props.route.header}
+        username={this.state.username} />
     )
   }
-})
+});
+
+module.exports = PromptContainer;
