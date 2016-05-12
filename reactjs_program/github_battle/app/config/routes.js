@@ -1,11 +1,12 @@
-var React       = require('react'),
-    ReactRouter = require('react-router'),
-    Router      = ReactRouter.Router,
-    Route       = ReactRouter.Route,
-    IndexRoute  = ReactRouter.IndexRoute,
-    hashHistory = ReactRouter.hashHistory,
-    Main        = require('../components/main'),
-    Home        = require('../components/home');
+var React           = require('react'),
+    ReactRouter     = require('react-router'),
+    Router          = ReactRouter.Router,
+    Route           = ReactRouter.Route,
+    IndexRoute      = ReactRouter.IndexRoute,
+    hashHistory     = ReactRouter.hashHistory,
+    Main            = require('../components/main'),
+    Home            = require('../components/home'),
+    PromptContainer = require('../containers/promp_container');
 
 var routes = (
   <Router history={hashHistory}>
