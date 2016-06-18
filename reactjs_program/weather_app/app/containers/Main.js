@@ -5,6 +5,14 @@ let styles = {
   container: {
     width: '100%',
     height: '92%'
+  },
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    background: 'rgba(252, 90, 44, .89)',
+    color: '#fff',
+    padding: 5
   }
 }
 
@@ -16,7 +24,10 @@ class Main extends Component {
   render() {
     return (
       <div style={styles.container}>
-        <h1>Main.js header</h1>
+        <div style={styles.header}>
+          <h2 style={{margin: 0}}>Weather Friend</h2>
+          <GetCityContainer direction="row" />
+        </div>
         {this.props.children}
       </div>
     )

@@ -25,8 +25,8 @@ class GetCityContainer extends Component {
     return (
       <GetCity
         direction={this.props.direction}
-        onSubmitCity={this.handleSubmitCity}
-        onUpdateCity={this.handleUpdateCity}
+        onSubmitCity={this.handleSubmitCity.bind(this)}
+        onUpdateCity={this.handleUpdateCity.bind(this)}
         city={this.state.city} />
     )
   }
