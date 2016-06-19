@@ -6,7 +6,7 @@ function Button(props) {
       style={{margin: 10}}
       className='btn btn-success'
       onClick={props.onSubmitCity}>
-        {props.children}
+      {props.children}
     </button>
   )
 }
