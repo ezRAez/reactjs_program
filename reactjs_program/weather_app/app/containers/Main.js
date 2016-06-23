@@ -9,7 +9,8 @@ let styles = {
   header: {
     display: 'flex',
     justifyContent: 'space-between',
-    background: 'rgba(252, 90, 44, .88)',
+    alignItems: 'center',
+    background: 'rgba(252, 90, 44, .89)',
     color: '#fff',
     padding: 5
   }

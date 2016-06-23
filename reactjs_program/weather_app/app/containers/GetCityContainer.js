@@ -2,17 +2,28 @@ import React, { Component, PropTypes } from 'react';
 
 import GetCity from '../components/GetCity';
 
+import WeatherUndergroundHelper from '../utils/WeatherUndergroundHelper';
+
+
 class GetCityContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       direction: 'column',
-      city: ''
+      city: '',
+      currentWeather: null,
+      weeklyWeather: null
     }
   }
 
   handleSubmitCity() {
-    console.log(this.state.city);
+   return WeatherUndergroundHelper.getWeather(this.state.city)
+    .then(function(res) {
+      this.setState = {
+        currentWeather: res[0].data,
+        weeklyWeather: res[1].data
+      }
+    }.bind(this));
   }
 
   handleUpdateCity(e) {
@@ -25,8 +36,8 @@ class GetCityContainer extends Component {
     return (
       <GetCity
         direction={this.props.direction}
-        onSubmitCity={this.handleSubmitCity}
-        onUpdateCity={this.handleUpdateCity}
+        onSubmitCity={this.handleSubmitCity.bind(this)}
+        onUpdateCity={this.handleUpdateCity.bind(this)}
         city={this.state.city} />
     )
   }
