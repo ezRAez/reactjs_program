@@ -4,7 +4,7 @@ class HelloWorld extends Component {
   render() {
     return (
       <div>
-        Hello World!
+        Hello { this.props.name }!
       </div>
     );
   }

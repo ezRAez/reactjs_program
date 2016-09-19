@@ -4,6 +4,6 @@ import HelloWorld from './App';
 import './index.css';
 
 ReactDOM.render(
-  <HelloWorld />,
+  <HelloWorld name="Ezra" />,
   document.getElementById('root')
 );
