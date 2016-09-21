@@ -3,6 +3,10 @@ import Prompt                          from '../components/Prompt';
 
 class PromptContainer extends Component {
 
+  static contextTypes = {
+    router: PropTypes.object.isRequired
+  };
+
   constructor(props, context) {
     super(props, context);
 
@@ -50,9 +54,5 @@ class PromptContainer extends Component {
     )
   }
 };
-
-PromptContainer.contextTypes = {
-  router: PropTypes.object.isRequired
-}
 
 export default PromptContainer;
