@@ -6,3 +6,7 @@ body {
 .transparentBg {
   background: transparent;
 }
+
+.space {
+  margin-top: 25px;
+}
