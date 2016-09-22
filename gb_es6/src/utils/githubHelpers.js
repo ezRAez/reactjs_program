@@ -15,12 +15,10 @@ function getRepos(username) {
 }
 
 function getTotalStars(repos) {
-  console.log("REPOS: ", repos)
   return repos.reduce((prev, current) => prev + current.stargazers_count, 0);
 }
 
 function getPlayersData(player) {
-  console.log(player);
   return getRepos(player.login)
     .then(getTotalStars)
     .then(allStars => {

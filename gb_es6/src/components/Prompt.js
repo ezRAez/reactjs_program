@@ -1,8 +1,9 @@
-import React, { PropTypes } from 'react';
+import React        , { PropTypes } from 'react';
+import MainContainer                from './MainContainer';
 
 function Prompt(props) {
   return (
-    <div className="jumbotron col-sm-6 col-sm-offset-3 text-center transparentBg">
+    <MainContainer>
       <h1>{props.header}</h1>
       <div className="col-sm-12">
         <form onSubmit={props.onSubmitUser}>
@@ -23,7 +24,7 @@ function Prompt(props) {
           </div>
         </form>
       </div>
-    </div>
+    </MainContainer>
   )
 }
 
