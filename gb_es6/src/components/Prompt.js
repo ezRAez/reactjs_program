@@ -1,13 +1,12 @@
 import React        , { PropTypes } from 'react';
-import MainContainer                from './MainContainer';
 
 function Prompt(props) {
   return (
-    <MainContainer>
+    <div>
       <h1>{props.header}</h1>
       <div className="col-sm-12">
         <form onSubmit={props.onSubmitUser}>
-          <div className="form-group">
+          <div className="form-group col-sm-offset-3 col-sm-6">
             <input
               className="form-control"
               placeholder="Github Username"
@@ -24,9 +23,9 @@ function Prompt(props) {
           </div>
         </form>
       </div>
-    </MainContainer>
-  )
-}
+    </div>
+  );
+};
 
 
 Prompt.propTypes = {
@@ -34,6 +33,6 @@ Prompt.propTypes = {
   username: PropTypes.string.isRequired,
   onUpdateUser: PropTypes.func.isRequired,
   onSubmitUser: PropTypes.func.isRequired,
-}
+};
 
 export default Prompt;
