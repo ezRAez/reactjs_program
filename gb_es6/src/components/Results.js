@@ -2,6 +2,7 @@ import React             , { PropTypes } from 'react';
 import UserDetailsWrapper                from './UserDetailsWrapper';
 import UserDetails                       from './UserDetails';
 import                     { Link }      from 'react-router';
+import Loading                           from './Loading';
 
 function StartOver() {
   return (
@@ -16,7 +17,7 @@ function StartOver() {
 function Results(props) {
   if (props.isLoading === true) {
     return (
-      <p> LOADING </p>
+      <Loading speed={100} text="Woop" repeater=" Woop" />
     );
   }
 

@@ -2,10 +2,11 @@ import React             , { PropTypes } from 'react';
 import                     { Link }      from 'react-router';
 import UserDetails                       from './UserDetails';
 import UserDetailsWrapper                from './UserDetailsWrapper';
+import Loading                           from './Loading'
 
 function ConfirmBattle(props) {
   return props.isLoading === true
-  ? (<p> LOADING </p>)
+  ? (<Loading />)
   : (
       <div>
         <h1>Confirm Players</h1>

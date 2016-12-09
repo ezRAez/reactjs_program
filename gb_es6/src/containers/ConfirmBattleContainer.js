@@ -18,7 +18,7 @@ class ConfirmBattleContainer extends Component {
   }
 
   componentDidMount() {
-    let query = this.props.location.query;
+    const { query } = this.props.location;
     githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
       .then(players => {
         this.setState({
@@ -42,8 +42,7 @@ class ConfirmBattleContainer extends Component {
       <ConfirmBattle
         isLoading={this.state.isLoading}
         playersInfo={this.state.playersInfo}
-        onInitiateBattle={this.handleInitiateBattle}
-        />
+        onInitiateBattle={this.handleInitiateBattle} />
     );
   }
 }
